@@ -23,9 +23,9 @@ const store = {
         'Realm Royale'
       ],
       correctAnswer: 'Apex Legends'
-    }
+    },
     {
-      question: 'In Player Unknown\'s BattleGrounds (PUBG) which melee weapon is the strongest?'
+      question: 'In Player Unknown\'s BattleGrounds (PUBG) which melee weapon is the strongest?',
       answers: [
         'Baseball Bat',
         'Machete',
@@ -33,7 +33,7 @@ const store = {
         'Frying Pan'
       ],
       correctAnswer: 'Frying Pan'
-    }
+    },
     {
       question: 'Which battle royale features all skins for free?',
       answers: [
@@ -43,7 +43,7 @@ const store = {
         'Realm Royale'
       ],
       correctAnswer: 'Totally Accurate Battle Royale'
-    }
+    },
     {
       question: 'Which battle royale was the first to feature cross console play?',
       answers: [
