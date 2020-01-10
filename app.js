@@ -9,7 +9,7 @@ const STORE = {
         'Fortnite',
         'Totally Accurate Battle Royale'
       ],
-      correctAnswer: '3'
+      correctAnswer: 'Fortnite'
     },
     {
       question: 'What was the first battle royale to implement a respawn feature?',
@@ -19,7 +19,7 @@ const STORE = {
         'PUBG',
         'Realm Royale'
       ],
-      correctAnswer: '1'
+      correctAnswer: 'Apex Legends'
     },
     {
       question: 'In Player Unknown\'s BattleGrounds (PUBG) which melee weapon is the strongest?',
@@ -29,7 +29,7 @@ const STORE = {
         'Crowbar',
         'Frying Pan'
       ],
-      correctAnswer: '4'
+      correctAnswer: 'Frying Pan'
     },
     {
       question: 'Which battle royale features all skins for free?',
@@ -39,7 +39,7 @@ const STORE = {
         'PUBG',
         'Realm Royale'
       ],
-      correctAnswer: '2'
+      correctAnswer: 'Totally Accurate Battle Royale'
     },
     {
       question: 'Which battle royale was the first to feature cross console play?',
@@ -49,7 +49,7 @@ const STORE = {
         'PUBG',
         'Realm Royale'
       ],
-      correctAnswer: '2'
+      correctAnswer: 'Fortnite'
     }
   ],
   questionNumber: 0,
@@ -117,7 +117,7 @@ function renderAnswerPageCorrect() {
 function renderAnswerPageIncorrect() {
   const incorrectAnswerView = (`<h2 class="incorrect-answer"> Incorrect! </h2>
   <p class="incorrect-answer">
-      The correct answer is: 
+      The correct answer is: ${STORE.questions[STORE.questionNumber].correctAnswer}
   </p>
   <button type="button" class="next-question">Next Question</button>
   <h3>Score: ${STORE.score}/5</h3>`)
@@ -154,8 +154,9 @@ function answerSubmitter() {
     // $('main').submit('.answer-list', function(event){
     //   console.log('answerChecker is running');
       // event.preventDefault();
-      let selectedAnswer = $('input[type=radio][name=Answer]:checked').val();
-      if(selectedAnswer === STORE.questions[STORE.questionNumber].correctAnswer){
+      let answerNumber = $('input[type=radio][name=Answer]:checked').val();
+      let selectedAnswer = STORE.questions[STORE.questionNumber].answers[answerNumber-1];
+      if(selectedAnswer == STORE.questions[STORE.questionNumber].correctAnswer){
         STORE.score +=1;
         renderAnswerPageCorrect();
       }
