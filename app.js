@@ -111,7 +111,7 @@ function renderQuestionPage(){
     </div>
 </form>
 <button type="button" class="submit-answer">Submit</button>
-<h3>Score: ${STORE.score}/5</h3>`)
+<h3>Score: ${STORE.score} out of 5</h3>`)
 $('main').html(questionView);
 }
 
@@ -122,7 +122,7 @@ function renderAnswerPageCorrect() {
       You are absolutely right.
   </p>
   <button type="button" class="next-question">Next Question</button>
-  <h3>Score: ${STORE.score}/5</h3>`)
+  <h3>Score: ${STORE.score} out of 5</h3>`)
   $('main').html(correctAnswerView);
 }
 
@@ -132,7 +132,7 @@ function renderAnswerPageIncorrect() {
       The correct answer is: ${STORE.questions[STORE.questionNumber].correctAnswer}
   </p>
   <button type="button" class="next-question">Next Question</button>
-  <h3>Score: ${STORE.score}/5</h3>`)
+  <h3>Score: ${STORE.score} out of 5</h3>`)
   $('main').html(incorrectAnswerView);
 }
 //Renders incorrect answer pages of quiz app
@@ -140,7 +140,7 @@ function renderAnswerPageIncorrect() {
 function renderResultsPage() {
   const resultView = (`<h2>Score</h2>
   <button type="button" class="start-over">Play Again</button>
-  <h3>Score: ${STORE.score}/5</h3>`)
+  <h3>Score: ${STORE.score} out of 5</h3>`)
   $('main').html(resultView);
 }
 //Renders result page of quiz app
