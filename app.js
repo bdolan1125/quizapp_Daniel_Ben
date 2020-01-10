@@ -138,9 +138,10 @@ function renderAnswerPageIncorrect() {
 //Renders incorrect answer pages of quiz app
 
 function renderResultsPage() {
-  const resultView = (`<h2>Score</h2>
+  const resultView = (`<h2>Congratulations!</h2>
+  <h3>Your Final Score: ${STORE.score} out of 5</h3>
   <button type="button" class="start-over">Play Again</button>
-  <h3>Score: ${STORE.score} out of 5</h3>`)
+  `)
   $('main').html(resultView);
 }
 //Renders result page of quiz app
