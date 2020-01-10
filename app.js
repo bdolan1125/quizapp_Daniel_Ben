@@ -60,7 +60,6 @@ function renderStartPage(){
 const startView = (`<h2>Welcome to the Battle Royale Quiz</h2>
 <button type="button" class="start-quiz">Start Quiz</button>`);
 $('main').html(startView);
-console.log(renderStartPage)
 }
 
 //Renders question page when called
@@ -73,30 +72,34 @@ function renderQuestionPage(){
   const questionView = (`<h2 class="question-number">Question ${STORE.questionNumber+1}</h2>
 <p class="question-text">${questionPool}</p>
 <form class="answer-list-form">
-<p class="answer-list">
     <input type = "radio"
                  name = "Answer"
                  id = "answerOne"
                  value = "1"
-                 checked = "checked"
-                />
+                 tabindex = "0"
+                 checked = true/>
     <label for = "Answer1">${answer1}</label>
     <input type = "radio"
                  name = "Answer"
                  id = "answerTwo"
-                 value = "2" />
+                 value = "2" 
+                 tabindex = "0"
+                 />
     <label for = "Answer2">${answer2}</label>
     <input type = "radio"
                  name = "Answer"
                  id = "answerThree"
-                 value = "3" />
+                 value = "3" 
+                 tabindex = "0"
+                 />
     <label for = "Answer3">${answer3}</label>
     <input type = "radio"
                  name = "Answer"
                  id = "answerFour"
-                 value = "4" />
+                 value = "4" 
+                 tabindex = "0"
+                 />
     <label for = "Answer4">${answer4}</label>
-</p>
 </form>
 <button type="button" class="submit-answer">Submit</button>
 <h3>Score: ${STORE.score}/5</h3>`)
@@ -162,7 +165,6 @@ function answerSubmitter() {
       }
       else{
         renderAnswerPageIncorrect();
-        console.log(selectedAnswer);
       }
 };
   
@@ -173,7 +175,7 @@ function answerSubmitter() {
 
 function nextQuestion() {
   $('main').on('click 13', '.next-question', event => {
-    STORE.questionNumber +=1;
+    questionCounter();
     if (STORE.questionNumber < 5) {
     renderQuestionPage();
     }
@@ -197,6 +199,10 @@ $('main').on('click 13', '.start-over', event => {
 }
 //listens for click events on play again button
 //calls renderStartPage
+
+function questionCounter() {
+  STORE.questionNumber +=1;
+}
 
 function scoreCounter() {
   STORE.score += 1;
