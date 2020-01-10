@@ -9,7 +9,7 @@ const STORE = {
         'Fortnite',
         'Totally Accurate Battle Royale'
       ],
-      correctAnswer: 'Fortnite'
+      correctAnswer: '3'
     },
     {
       question: 'What was the first battle royale to implement a respawn feature?',
@@ -19,7 +19,7 @@ const STORE = {
         'PUBG',
         'Realm Royale'
       ],
-      correctAnswer: 'Apex Legends'
+      correctAnswer: '1'
     },
     {
       question: 'In Player Unknown\'s BattleGrounds (PUBG) which melee weapon is the strongest?',
@@ -29,7 +29,7 @@ const STORE = {
         'Crowbar',
         'Frying Pan'
       ],
-      correctAnswer: 'Frying Pan'
+      correctAnswer: '4'
     },
     {
       question: 'Which battle royale features all skins for free?',
@@ -39,7 +39,7 @@ const STORE = {
         'PUBG',
         'Realm Royale'
       ],
-      correctAnswer: 'Totally Accurate Battle Royale'
+      correctAnswer: '2'
     },
     {
       question: 'Which battle royale was the first to feature cross console play?',
@@ -49,7 +49,7 @@ const STORE = {
         'PUBG',
         'Realm Royale'
       ],
-      correctAnswer: 'Fortnite'
+      correctAnswer: '2'
     }
   ],
   questionNumber: 0,
@@ -78,6 +78,7 @@ function renderQuestionPage(){
                  name = "Answer"
                  id = "answerOne"
                  value = "1"
+                 checked = "checked"
                 />
     <label for = "Answer1">${answer1}</label>
     <input type = "radio"
@@ -146,14 +147,24 @@ function quizStarter(){
 //calls answerChecker() with form value
 function answerSubmitter() {
   $('main').on('click 13', '.submit-answer', event => {
-
-    renderAnswerPageCorrect();
+    answerChecker();
   });
 }
-
-function answerChecker() {
-  if (`${answer}`);
-}
+  function answerChecker() {
+    // $('main').submit('.answer-list', function(event){
+    //   console.log('answerChecker is running');
+      // event.preventDefault();
+      let selectedAnswer = $('input[type=radio][name=Answer]:checked').val();
+      if(selectedAnswer === STORE.questions[STORE.questionNumber].correctAnswer){
+        STORE.score +=1;
+        renderAnswerPageCorrect();
+      }
+      else{
+        renderAnswerPageIncorrect();
+        console.log(selectedAnswer);
+      }
+};
+  
 //receives value from answerSubmitter()
 //compares supplied value with correct value
 //if === calls renderAnswerPageCorrect()
