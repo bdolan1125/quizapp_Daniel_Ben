@@ -59,19 +59,18 @@ const STORE = {
 function renderStartPage(){
 const startView = (`<h2>Welcome to the Battle Royale Quiz</h2>
 <button type="button" class="start-quiz">Start Quiz</button>`);
-counter = 0;
 $('main').html(startView);
 console.log(renderStartPage)
 }
 
 //Renders question page when called
 function renderQuestionPage(){
-  const questionPool = STORE.questions[counter].question;
-  const answer1 = STORE.questions[counter].answers[0];
-  const answer2 = STORE.questions[counter].answers[1];
-  const answer3 = STORE.questions[counter].answers[2];
-  const answer4 = STORE.questions[counter].answers[3];
-  const questionView = (`<h2 class="question-number">Question ${counter+1}</h2>
+  const questionPool = STORE.questions[STORE.questionNumber].question;
+  const answer1 = STORE.questions[STORE.questionNumber].answers[0];
+  const answer2 = STORE.questions[STORE.questionNumber].answers[1];
+  const answer3 = STORE.questions[STORE.questionNumber].answers[2];
+  const answer4 = STORE.questions[STORE.questionNumber].answers[3];
+  const questionView = (`<h2 class="question-number">Question ${STORE.questionNumber+1}</h2>
 <p class="question-text">${questionPool}</p>
 <form class="answer-list-form">
 <p class="answer-list">
@@ -99,7 +98,7 @@ function renderQuestionPage(){
 </p>
 </form>
 <button type="button" class="submit-answer">Submit</button>
-<h3>Score: ${score}/5</h3>`)
+<h3>Score: ${STORE.score}/5</h3>`)
 $('main').html(questionView);
 }
 
@@ -110,7 +109,7 @@ function renderAnswerPageCorrect() {
       You are absolutely right.
   </p>
   <button type="button" class="next-question">Next Question</button>
-  <h3>Score: ${score}/5</h3>`)
+  <h3>Score: ${STORE.score}/5</h3>`)
   $('main').html(correctAnswerView);
 }
 
@@ -120,7 +119,7 @@ function renderAnswerPageIncorrect() {
       The correct answer is: 
   </p>
   <button type="button" class="next-question">Next Question</button>
-  <h3>Score: ${score}/5</h3>`)
+  <h3>Score: ${STORE.score}/5</h3>`)
   $('main').html(incorrectAnswerView);
 }
 //Renders incorrect answer pages of quiz app
@@ -128,7 +127,7 @@ function renderAnswerPageIncorrect() {
 function renderResultsPage() {
   const resultView = (`<h2>Score</h2>
   <button type="button" class="start-over">Play Again</button>
-  <h3>Score: ${score}/5</h3>`)
+  <h3>Score: ${STORE.score}/5</h3>`)
   $('main').html(resultView);
 }
 //Renders result page of quiz app
@@ -159,14 +158,11 @@ function answerChecker() {
 //compares supplied value with correct value
 //if === calls renderAnswerPageCorrect()
 //else !== calls renderAnswerPageIncorrect()
-var counter = 0;
-var score = 0;
 
 function nextQuestion() {
   $('main').on('click 13', '.next-question', event => {
-    counter++;
-    STORE.objectNumber = counter;
-    if (counter < 5) {
+    STORE.questionNumber +=1;
+    if (STORE.questionNumber < 5) {
     renderQuestionPage();
     }
     else {
@@ -183,15 +179,15 @@ function nextQuestion() {
 function playAgain() {
 $('main').on('click 13', '.start-over', event => {
   renderStartPage();
-  let counter = 0;
-  let score = 0;
+  STORE.questionNumber = 0;
+  STORE.score = 0;
 });
 }
 //listens for click events on play again button
 //calls renderStartPage
 
 function scoreCounter() {
-  score ++;
+  STORE.score += 1;
 }
 //refers to const which displays score
 //++ to score const upon call
