@@ -72,34 +72,43 @@ function renderQuestionPage(){
   const questionView = (`<h2 class="question-number">Question ${STORE.questionNumber+1}</h2>
 <p class="question-text">${questionPool}</p>
 <form class="answer-list-form">
+<div>
     <input type = "radio"
                  name = "Answer"
                  id = "answerOne"
                  value = "1"
-                 tabindex = "0"
-                 checked = true/>
+                 tabindex = "1"
+                 checked = true
+                 alt= ${answer1} />
     <label for = "Answer1">${answer1}</label>
+    </div>
+    <div>
     <input type = "radio"
                  name = "Answer"
                  id = "answerTwo"
                  value = "2" 
-                 tabindex = "0"
+                 tabindex = "2"
                  />
     <label for = "Answer2">${answer2}</label>
+    </div>
+    <div>
     <input type = "radio"
                  name = "Answer"
                  id = "answerThree"
                  value = "3" 
-                 tabindex = "0"
+                 tabindex = "3"
                  />
     <label for = "Answer3">${answer3}</label>
+    </div>
+    <div>
     <input type = "radio"
                  name = "Answer"
                  id = "answerFour"
                  value = "4" 
-                 tabindex = "0"
+                 tabindex = "4"
                  />
     <label for = "Answer4">${answer4}</label>
+    </div>
 </form>
 <button type="button" class="submit-answer">Submit</button>
 <h3>Score: ${STORE.score}/5</h3>`)
