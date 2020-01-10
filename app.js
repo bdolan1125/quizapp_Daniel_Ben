@@ -1,8 +1,6 @@
-/**
- * Example store structure
- */
-//const store = {
-  // 5 or more questions are required
+
+// const STORE = {
+//   5 or more questions are required
 //   questions: [
 //     {
 //       question: 'Which battle royale focuses on building?',
@@ -60,15 +58,15 @@
 // };
 
 function renderStartPage(){
-const startPageHtml = (`<h2>Welcome to the Battle Royale Quiz</h2>
+const startView = (`<h2>Welcome to the Battle Royale Quiz</h2>
 <button type="button" class="start-quiz">Start Quiz</button>`);
-$('main').html(startPageHtml);
+$('main').html(startView);
 console.log(renderStartPage)
 }
 
-
+//Renders question page when called
 function renderQuestionPage(){
-  const questionPageHtml = (`<h2 class="question-number">Question X</h2>
+  const questionView = (`<h2 class="question-number">Question X</h2>
 <p class="question-text">Question Text?</p>
 <form class="answer-list-form">
 <p class="answer-list">
@@ -96,16 +94,33 @@ function renderQuestionPage(){
 </p>
 </form>
 <button type="button" class="submit">Submit</button>`)
-$('main').html(questionPageHtml);
-console.log(renderQuestionPage)
+$('main').html(questionView);
 }
-//function renderAnswerPageCorrect()
-//Renders correct answer pages of quiz app
 
-//function renderAnswerPageIncorrect()
+//Renders correct answer pages of quiz app
+function renderAnswerPageCorrect() {
+  const correctAnswerView = (`<h2 class="correct-answer"> Correct! </h2>
+  <p class="correct-answer">
+      You are absolutely right.
+  </p>
+  <button type="button" class="next-question">Next Question</button>`)
+  $('main').html(correctAnswerView);
+}
+
+function renderAnswerPageIncorrect() {
+  const incorrectAnswerView = (`<h2 class="incorrect-answer"> Incorrect! </h2>
+  <p class="incorrect-answer">
+      The correct answer is: 
+  </p>
+  <button type="button" class="next-question">Next Question</button>`)
+  $('main').html(incorrectAnswerView);
+}
 //Renders incorrect answer pages of quiz app
 
-//function renderResultsPage()
+function renderResultsPage()
+  const resultView = (`<h2>Score</h2>
+  <button type="button" class="start-over">Play Again</button>`)
+  $('main').html(resultView);
 //Renders result page of quiz app
 
 function quizStarter(){
@@ -117,9 +132,15 @@ function quizStarter(){
 //listens for click events on start button
 //calls renderQuestionPage()
 
-//function answerSubmitter()
+
 //listens for submit events in form
 //calls answerChecker() with form value
+function answerSubmitter() {
+  $('main').on('click', '.submit-answer', event => {
+    console.log('hello');
+    renderAnswerPageCorrect();
+  });
+}
 
 //function answerChecker()
 //receives value from answerSubmitter()
@@ -129,7 +150,8 @@ function quizStarter(){
 
 //function nextQuestion()
 //listens for click events on next question button
-//calls renderQuestionPage()
+//if index not last question calls renderQuestionPage() for question at defined index
+//if index is that of last question calls renderResultPage()
 
 //LOOP ABOVE FUNCTIONS until STORE is exhausted
 
@@ -147,7 +169,7 @@ function handleQuizApp(){
   // nextQuestion();
   // playAgain();
   // answerChecker();
-  // answerSubmitter();
+  answerSubmitter();
 }
 $(handleQuizApp);
 
