@@ -10,11 +10,10 @@ const STORE = {
         'Totally Accurate Battle Royale'
       ],
       correctAnswer: 'Fortnite',
-      correctAnswer: 'Apex Legends',
-      rightImage: 'img/apex_champion.jpg',
-      rightImageAlt: "You are the Champion!",
-      wrongImage: 'img/apex-pathfinder.jpg',
-      wrongImageAlt: 'Pathfinder zipping over lake'
+      rightImage: 'img/fortnite-victory2.jpg',
+      rightImageAlt: "Victory!",
+      wrongImage: 'img/fortnite-loading.jpg',
+      wrongImageAlt: 'Fortnite'
     },
     {
       question: 'What was the first battle royale to implement a respawn feature?',
@@ -39,11 +38,10 @@ const STORE = {
         'Frying Pan'
       ],
       correctAnswer: 'Frying Pan',
-      correctAnswer: 'Apex Legends',
-      rightImage: 'img/apex_champion.jpg',
-      rightImageAlt: "You are the Champion!",
-      wrongImage: 'img/apex-pathfinder.jpg',
-      wrongImageAlt: 'Pathfinder zipping over lake'
+      rightImage: 'img/fryingpan1.png',
+      rightImageAlt: "Frying Pan",
+      wrongImage: 'img/fryingpan1.png',
+      wrongImageAlt: 'Frying pan'
     },
     {
       question: 'Which battle royale features all skins for free?',
@@ -54,11 +52,10 @@ const STORE = {
         'Realm Royale'
       ],
       correctAnswer: 'Totally Accurate Battle Royale',
-      correctAnswer: 'Apex Legends',
-      rightImage: 'img/apex_champion.jpg',
-      rightImageAlt: "You are the Champion!",
-      wrongImage: 'img/apex-pathfinder.jpg',
-      wrongImageAlt: 'Pathfinder zipping over lake'
+      rightImage: 'img/tabs2.png',
+      rightImageAlt: "Character selection screen",
+      wrongImage: 'img/tabs2.png',
+      wrongImageAlt: 'Character selection screen'
     },
     {
       question: 'Which battle royale was the first to feature cross console play?',
@@ -69,11 +66,10 @@ const STORE = {
         'Realm Royale'
       ],
       correctAnswer: 'Fortnite',
-      correctAnswer: 'Apex Legends',
-      rightImage: 'img/apex_champion.jpg',
-      rightImageAlt: "You are the Champion!",
-      wrongImage: 'img/apex-pathfinder.jpg',
-      wrongImageAlt: 'Pathfinder zipping over lake'
+      rightImage: 'img/fortnite-victory',
+      rightImageAlt: "Victory!",
+      wrongImage: 'img/fortnite-loading.jpg',
+      wrongImageAlt: 'Fortnite'
     }
   ],
   questionNumber: 0,
