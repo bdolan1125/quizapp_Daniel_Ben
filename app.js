@@ -145,7 +145,6 @@ function renderAnswerPageCorrect() {
   <button type="button" class="next-question">Next Question</button>
   <h3>Score: ${STORE.score} out of 5</h3>`)
   $('main').html(correctAnswerView);
-  console.log(STORE.questions[STORE.questionNumber].rightImage);
 }
 
 function renderAnswerPageIncorrect() {
@@ -248,7 +247,7 @@ function handleQuizApp(){
   quizStarter();
   nextQuestion();
   playAgain();
-  // answerChecker();
+  answerChecker();
   answerSubmitter();
 }
 $(handleQuizApp);
