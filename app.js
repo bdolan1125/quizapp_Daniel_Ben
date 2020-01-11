@@ -9,7 +9,12 @@ const STORE = {
         'Fortnite',
         'Totally Accurate Battle Royale'
       ],
-      correctAnswer: 'Fortnite'
+      correctAnswer: 'Fortnite',
+      correctAnswer: 'Apex Legends',
+      rightImage: 'img/apex_champion.jpg',
+      rightImageAlt: "You are the Champion!",
+      wrongImage: 'img/apex-pathfinder.jpg',
+      wrongImageAlt: 'Pathfinder zipping over lake'
     },
     {
       question: 'What was the first battle royale to implement a respawn feature?',
@@ -19,7 +24,11 @@ const STORE = {
         'PUBG',
         'Realm Royale'
       ],
-      correctAnswer: 'Apex Legends'
+      correctAnswer: 'Apex Legends',
+      rightImage: 'img/apex_champion.jpg',
+      rightImageAlt: "You are the Champion!",
+      wrongImage: 'img/apex-pathfinder.jpg',
+      wrongImageAlt: 'Pathfinder zipping over lake'
     },
     {
       question: 'In Player Unknown\'s BattleGrounds (PUBG) which melee weapon is the strongest?',
@@ -29,7 +38,12 @@ const STORE = {
         'Crowbar',
         'Frying Pan'
       ],
-      correctAnswer: 'Frying Pan'
+      correctAnswer: 'Frying Pan',
+      correctAnswer: 'Apex Legends',
+      rightImage: 'img/apex_champion.jpg',
+      rightImageAlt: "You are the Champion!",
+      wrongImage: 'img/apex-pathfinder.jpg',
+      wrongImageAlt: 'Pathfinder zipping over lake'
     },
     {
       question: 'Which battle royale features all skins for free?',
@@ -39,7 +53,12 @@ const STORE = {
         'PUBG',
         'Realm Royale'
       ],
-      correctAnswer: 'Totally Accurate Battle Royale'
+      correctAnswer: 'Totally Accurate Battle Royale',
+      correctAnswer: 'Apex Legends',
+      rightImage: 'img/apex_champion.jpg',
+      rightImageAlt: "You are the Champion!",
+      wrongImage: 'img/apex-pathfinder.jpg',
+      wrongImageAlt: 'Pathfinder zipping over lake'
     },
     {
       question: 'Which battle royale was the first to feature cross console play?',
@@ -49,7 +68,12 @@ const STORE = {
         'PUBG',
         'Realm Royale'
       ],
-      correctAnswer: 'Fortnite'
+      correctAnswer: 'Fortnite',
+      correctAnswer: 'Apex Legends',
+      rightImage: 'img/apex_champion.jpg',
+      rightImageAlt: "You are the Champion!",
+      wrongImage: 'img/apex-pathfinder.jpg',
+      wrongImageAlt: 'Pathfinder zipping over lake'
     }
   ],
   questionNumber: 0,
@@ -121,9 +145,11 @@ function renderAnswerPageCorrect() {
   <p class="correct-answer">
       You are absolutely right.
   </p>
+  <img src="${STORE.questions[STORE.questionNumber].rightImage}" alt="${STORE.questions[STORE.questionNumber].rightImageAlt}"/>
   <button type="button" class="next-question">Next Question</button>
   <h3>Score: ${STORE.score} out of 5</h3>`)
   $('main').html(correctAnswerView);
+  console.log(STORE.questions[STORE.questionNumber].rightImage);
 }
 
 function renderAnswerPageIncorrect() {
@@ -131,6 +157,7 @@ function renderAnswerPageIncorrect() {
   <p class="incorrect-answer">
       The correct answer is: ${STORE.questions[STORE.questionNumber].correctAnswer}
   </p>
+  <img src="${STORE.questions[STORE.questionNumber].wrongImage}" alt="${STORE.questions[STORE.questionNumber].wrongImageAlt}"/>
   <button type="button" class="next-question">Next Question</button>
   <h3>Score: ${STORE.score} out of 5</h3>`)
   $('main').html(incorrectAnswerView);
