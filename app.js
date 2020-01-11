@@ -66,7 +66,7 @@ const STORE = {
         'Realm Royale'
       ],
       correctAnswer: 'Fortnite',
-      rightImage: 'img/fortnite-victory',
+      rightImage: 'img/fortnite-victory.jpg',
       rightImageAlt: "Victory!",
       wrongImage: 'img/fortnite-loading.jpg',
       wrongImageAlt: 'Fortnite'
