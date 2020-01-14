@@ -92,7 +92,7 @@ function renderQuestionPage(){
   const questionView = (`<h2 class="question-number">Question ${STORE.questionNumber+1}</h2>
 <p class="question-text">${questionPool}</p>
 <form class="answer-list-form">
-<div>
+  <div>
     <input type = "radio"
                  name = "Answer"
                  id = "answerOne"
@@ -128,7 +128,7 @@ function renderQuestionPage(){
                  tabindex = "4"
                  />
     <label for = "Answer4">${answer4}</label>
-    </div>
+  </div>
 </form>
 <button type="button" class="submit-answer">Submit</button>
 <h3>Score: ${STORE.score} out of 5</h3>`)
@@ -137,7 +137,8 @@ $('main').html(questionView);
 
 //Renders correct answer pages of quiz app
 function renderAnswerPageCorrect() {
-  const correctAnswerView = (`<h2 class="correct-answer"> Correct! </h2>
+  const correctAnswerView = (`<h2 class="question-number">Question ${STORE.questionNumber+1}</h2>
+  <h2 class="correct-answer"> Correct! </h2>
   <p class="correct-answer">
       You are absolutely right.
   </p>
@@ -148,7 +149,8 @@ function renderAnswerPageCorrect() {
 }
 
 function renderAnswerPageIncorrect() {
-  const incorrectAnswerView = (`<h2 class="incorrect-answer"> Incorrect! </h2>
+  const incorrectAnswerView = (`<h2 class="question-number">Question ${STORE.questionNumber+1}</h2>
+  <h2 class="incorrect-answer"> Incorrect! </h2>
   <p class="incorrect-answer">
       The correct answer is: ${STORE.questions[STORE.questionNumber].correctAnswer}
   </p>
@@ -160,7 +162,7 @@ function renderAnswerPageIncorrect() {
 //Renders incorrect answer pages of quiz app
 
 function renderResultsPage() {
-  const resultView = (`<h2>Congratulations!</h2>
+  const resultView = (`<h2>The End!</h2>
   <h3>Your Final Score: ${STORE.score} out of 5</h3>
   <button type="button" class="start-over">Play Again</button>
   `)
@@ -169,7 +171,7 @@ function renderResultsPage() {
 //Renders result page of quiz app
 
 function quizStarter(){
-  $('main').on('click 13', '.start-quiz', event => {
+  $('main').on('click', '.start-quiz', event => {
     renderQuestionPage();
   });
 }
@@ -181,17 +183,14 @@ function quizStarter(){
 //listens for submit events in form
 //calls answerChecker() with form value
 function answerSubmitter() {
-  $('main').on('click 13', '.submit-answer', event => {
+  $('main').on('click', '.submit-answer', event => {
     answerChecker();
   });
 }
   function answerChecker() {
-    // $('main').submit('.answer-list', function(event){
-    //   console.log('answerChecker is running');
-      // event.preventDefault();
       let answerNumber = $('input[type=radio][name=Answer]:checked').val();
       let selectedAnswer = STORE.questions[STORE.questionNumber].answers[answerNumber-1];
-      if(selectedAnswer == STORE.questions[STORE.questionNumber].correctAnswer){
+      if(selectedAnswer === STORE.questions[STORE.questionNumber].correctAnswer){
         STORE.score +=1;
         renderAnswerPageCorrect();
       }
@@ -206,7 +205,7 @@ function answerSubmitter() {
 //else !== calls renderAnswerPageIncorrect()
 
 function nextQuestion() {
-  $('main').on('click 13', '.next-question', event => {
+  $('main').on('click', '.next-question', event => {
     questionCounter();
     if (STORE.questionNumber < 5) {
     renderQuestionPage();
@@ -223,7 +222,7 @@ function nextQuestion() {
 //LOOP ABOVE FUNCTIONS until STORE is exhausted
 
 function playAgain() {
-$('main').on('click 13', '.start-over', event => {
+$('main').on('click', '.start-over', event => {
   renderStartPage();
   STORE.questionNumber = 0;
   STORE.score = 0;
@@ -243,12 +242,12 @@ function scoreCounter() {
 //++ to score const upon call
 
 function handleQuizApp(){
-  renderStartPage();
   quizStarter();
   nextQuestion();
   playAgain();
   answerChecker();
   answerSubmitter();
+  renderStartPage();
 }
 $(handleQuizApp);
 
