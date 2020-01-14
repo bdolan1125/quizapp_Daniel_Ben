@@ -90,8 +90,8 @@ function renderQuestionPage(){
   const answer3 = STORE.questions[STORE.questionNumber].answers[2];
   const answer4 = STORE.questions[STORE.questionNumber].answers[3];
   const questionView = (`<h2 class="question-number">Question ${STORE.questionNumber+1}</h2>
-<p class="question-text">${questionPool}</p>
 <form class="answer-list-form">
+<p class="question-text">${questionPool}</p>
   <div>
     <input type = "radio"
                  name = "Answer"
